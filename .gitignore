@@ -80,3 +80,8 @@ __pycache__/
 # Source recordings for the README GIF (the .gif itself is tracked under docs/)
 /video.mov
 /*.mov
+
+# Intermediate LDI artifacts from layered_360.py — the runtime loads the .webp
+# versions emitted by build_scene.py, so these are dev-only leftovers.
+/public/parallax/*-fg[0-9].png
+/public/parallax/*-fg-mask.png
