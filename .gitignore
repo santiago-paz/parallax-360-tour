@@ -76,3 +76,7 @@ __pycache__/
 
 # Dev-only screenshot scratch dir
 .spike-screens/
+
+# Source recordings for the README GIF (the .gif itself is tracked under docs/)
+/video.mov
+/*.mov

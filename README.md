@@ -3,10 +3,8 @@
 A depth-aware 360° panorama viewer. Drop in equirectangular panoramas, run the bundled Python pipeline to produce a **Layered Depth Image** (background + N foreground layers + per-pixel depth), and the browser viewer renders them as concentric three.js spheres displaced by depth — so a small mouse movement produces *real geometric parallax*, not a fake shader trick.
 
 > **Live preview:** _TODO — Vercel link goes here_
->
-> **Screenshot:** _TODO — drop a screenshot/GIF here_
->
-> <!-- ![Parallax viewer screenshot](docs/screenshot.png) -->
+
+![Parallax viewer preview](docs/preview.gif)
 
 ---
 
