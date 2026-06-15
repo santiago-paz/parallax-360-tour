@@ -1,0 +1,40 @@
+# parallax_360.py dependencies
+# Install: pip install -r requirements.txt
+
+# Core ML — depth inference
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Image processing
+Pillow>=10.0.0
+opencv-python-headless>=4.8.0
+numpy>=1.24.0
+
+# Depth-Anything-3 (primary backend — install separately):
+#   pip install git+https://github.com/ByteDance-Seed/Depth-Anything-3.git
+#
+# Falls back automatically to MiDaS (via torch.hub) if not installed,
+# and then to a synthetic depth map if MiDaS is also unavailable.
+
+# Optional — for layered_360.py LaMa inpainting backend
+# (auto-falls back to OpenCV TELEA if absent)
+simple-lama-inpainting>=0.1.0
+
+# DAP backend (native panoramic depth — install manually):
+#   git clone --depth 1 https://github.com/Insta360-Research-Team/DAP vendor/DAP
+#   curl -L -o vendor/DAP/weights/model.pth \
+#     https://huggingface.co/Insta360-Research/DAP-weights/resolve/main/model.pth
+#   pip install einops torchmetrics
+einops>=0.8.0
+torchmetrics>=1.0.0
+
+# Optional — SAM 2 object-snap for LDI (see layered_360.py --sam):
+#   pip install git+https://github.com/facebookresearch/sam2.git
+#   mkdir -p vendor/sam2/checkpoints
+#   curl -L -o vendor/sam2/checkpoints/sam2.1_hiera_large.pt \
+#     https://huggingface.co/facebook/sam2.1-hiera-large/resolve/main/sam2.1_hiera_large.pt
+# Required only when --sam is used; falls back transparently to threshold slicing.
+scikit-learn>=1.4.0
+
+# Dev / tests
+pytest>=8.0.0
