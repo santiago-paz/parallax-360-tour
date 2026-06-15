@@ -1,8 +1,10 @@
 # SOTA Review — 360° parallax pipeline
 
 **Date:** 2026-06-10
-**Status:** documentation only — no changes were implemented.
+**Status:** documentation only — no changes were implemented at the time of writing.
 **Question:** Does the 3D (parallax) effect use the state of the art in terms of performance/quality?
+
+> **Update note:** since this review, the WebP migration in "Performance gap #1" has shipped (foreground layers are now ~10× smaller WebPs delivered by `build_scene.py`).
 
 ## Current stack (3 stages)
 
@@ -50,7 +52,6 @@ Each fg layer is a 4096×2048 RGBA PNG of **9.4 MB** (`public/parallax/image-1-3
 
 - **Fixed layer radii** (`MIN_FG_RADIUS = 5` → `MAX_FG_RADIUS = 8`, `constants.ts:28`, linear distribution by index): the parallax magnitude per layer is arbitrary, not proportional to real depth. Better: derive the radius from the median depth of each slab — `layered_360.py` already knows the distribution and could emit the suggested `radius` in the snippet it prints for `app/scenes.ts`.
 - **Transition displacement on CPU**: `setDisplacementStrength()` (`displacement.ts:112`) iterates ~131k vertices in JS and re-uploads the buffer per frame during the transition (1.2 s). The standard practice is to displace in a vertex shader sampling the depth texture (`onBeforeCompile` on `MeshBasicMaterial`). Low impact — only during transitions — but would free CPU on mobile and allow per-pixel displacement.
-- **CLAUDE.md outdated**: says `ENABLE_PARALLAX` is `false`, but it is `true` today (`constants.ts:5`). Fix when the doc is next touched.
 
 ## Prioritized recommendation (pending decision)
 
