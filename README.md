@@ -129,4 +129,4 @@ python -m pytest tests/ -q
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+[The Unlicense](LICENSE) — public domain. Do whatever you want with it; no attribution required.

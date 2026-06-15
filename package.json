@@ -2,7 +2,7 @@
   "name": "parallax-360-tour",
   "version": "0.1.0",
   "description": "Depth-aware 360° panorama viewer. Drop in equirectangular panoramas, generate depth + LDI assets with the bundled Python pipeline, and pan between scenes with a parallax effect driven by per-pixel depth.",
-  "license": "MIT",
+  "license": "Unlicense",
   "keywords": [
     "360",
     "panorama",
